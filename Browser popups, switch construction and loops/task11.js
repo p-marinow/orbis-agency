@@ -22,10 +22,10 @@ function solution(h) {
       console.log('   ' + row + '   ');
       continue;
     } else if (i === 2) {
-      row = '***';
+      row = '* *';
       console.log('  ' + row + '  ');
     } else if (i === 3) {
-      row = '*****';
+      row = '*   *';
       console.log(' ' + row + ' ');
     } else if (i === 4) {
       row = '*******';
@@ -45,9 +45,8 @@ function solution2(h) {
       output += symbol;
     }
     console.log(output);
-    //output = '';
+    output = '';
   }
 }
 
-//solution(4);
-solution2(3);
+solution(4);
