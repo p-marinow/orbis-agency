@@ -6,7 +6,7 @@ function solution(x) {
   console.log(`Number is ${x}`);
   for (let i = 1; i <= x; i++) {
     x / i === 1 && i % 2 !== 0 && i % 3 !== 0 && i % 5 !== 0 && i % 7 !== 0
-      ? console.log(i)
+      ? console.log('Yes')
       : '';
   }
 }

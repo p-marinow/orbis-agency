@@ -10,8 +10,11 @@ function solution(x) {
   while (x !== 0) {
     for (let i = 3; i > 0; i++) {
       if (i % 3 === 0) {
-        result += i + ', ';
+        result += i;
         x--;
+        if(x !== 0) {
+          result += ', '
+        }
       } else if (x === 0) {
         break;
       }

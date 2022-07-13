@@ -10,7 +10,7 @@ function solution() {
   for (let i = 0; i <= 9; i++) {
     for (let j = 0; j <= 9; j++) {
       for (let k = 0; k <= 9; k++) {
-        if ((i === j || j === k || i === k) && number >= 100) {
+        if ((i !== j && j !== k && i !== k) && number >= 100) {
           result.push(number);
         }
         number++;

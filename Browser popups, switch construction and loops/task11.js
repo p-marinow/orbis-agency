@@ -34,19 +34,5 @@ function solution(h) {
   }
 }
 
-function solution2(h) {
-  let symbol = '*';
-  let output = '';
-  for (let row = 1; row <= h; row++) {
-    for (let column = 1; column <= row; column++) {
-      output += ' ';
-    }
-    for (let column = 1; column <= row; column++) {
-      output += symbol;
-    }
-    console.log(output);
-    output = '';
-  }
-}
 
 solution(4);

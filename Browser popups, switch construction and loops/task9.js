@@ -21,8 +21,11 @@ function solution(x, y) {
     if (result >= 200) {
       break;
     }
-    log += ', ';
+    if(i !== y) {
+      log += ', ';
+    }
   }
+  console.log(`Numbers are ${x} and ${y}`);
   console.log(log);
 }
 

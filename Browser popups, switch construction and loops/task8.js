@@ -8,35 +8,21 @@
                                     888		11111111
                                           15151515
 
-    ! print (x - 1), loop x times, increment with x += 2 
 */
 
 function solution(x) {
-  let result = '';
-  let loops = 0;
-  let algorith = x - 1;
-  while (x > loops) {
-    //! loop x times
-    label: for (let i = 0; i < x; i++) {
-      //! for loops for x rows
-      for (let j = 1; j <= x; j++) {
-        if (j === x - 1) {
-          result += algorith + '';
-        }
-        if (j === x) {
-          algorith += x;
-          for (let i = 1; i <= j; i += 2) {
-            result += result + '';
-          }
-          console.log(result);
-          break label;
-        }
+  for (let col = 1; col <= x; col++) {
+    console.log(`Number is: ${col}`);
+    for (let row = 1; row <= col; row++) {
+      let colNum = (col - 1) + col * (row - 1);
+      let text = '';
+      for (let i = 1; i <= col; i++) {
+        text += colNum;
       }
+      console.log(text);
     }
-    loops++;
-    result = '';
   }
 }
 
-let x = Math.floor(Math.random() * 5) + 1;
-solution(4);
+let x = Math.floor(Math.random() * 10) + 1;
+solution(x);

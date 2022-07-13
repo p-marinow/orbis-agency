@@ -11,7 +11,9 @@ function solution(x) {
     for (let j = 0; j <= 9; j++) {
       for (let k = 0; k <= 9; k++) {
         if (i + j + k === x) {
-          result.push(number);
+          if(number >= 100) {
+            result.push(number);
+          }
         }
         number++;
       }
