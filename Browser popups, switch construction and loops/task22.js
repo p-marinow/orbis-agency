@@ -11,12 +11,10 @@
 
 function solution(x) {
     let flag = 1;
-    let result = 0;
     console.log(`Number is ${x}\n`);
     while(flag <= 10) { 
-        //! add current x to result, log flag:x, ONLY if result is print -> increment flag else x++ for next value  
+        //! log flag:x, ONLY if result is printed -> increment flag else x++ for next value  
         if(x % 2 === 0 || x % 3 === 0 || x % 5 === 0) {
-            result += x;
             console.log(`${flag}: ${x}`);  
             flag++;
         }
@@ -28,4 +26,5 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-solution(randomNumber(1, 999))
+//solution(randomNumber(1, 999))
+solution(1)

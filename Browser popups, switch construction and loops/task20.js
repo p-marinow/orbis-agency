@@ -14,9 +14,10 @@
     9 1 2 3 4 5 6 7 8
 */
 
-function solution(x) {
+function solution() {
     let result = 0;
     let output = '';
+    let x = 45;
     for( let z = 1; z <= 9; z++) {
         result = 0;
         for(let i = z; i <= 9; i++) {
@@ -35,9 +36,8 @@ function solution(x) {
                 }
             }
         }
-        //console.log(result);
         console.log(output);  
     }
 }
 
-solution(45)
+solution()

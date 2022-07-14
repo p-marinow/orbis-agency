@@ -15,24 +15,21 @@
 */
 
 function solution(h) {
-  let row = '';
-  for (let i = 1; i <= h; i++) {
-    if (i === 1) {
-      row = '*';
-      console.log('   ' + row + '   ');
-      continue;
-    } else if (i === 2) {
-      row = '* *';
-      console.log('  ' + row + '  ');
-    } else if (i === 3) {
-      row = '*   *';
-      console.log(' ' + row + ' ');
-    } else if (i === 4) {
-      row = '*******';
-      console.log(row);
+  for(let i = 1; i <= h; i++) {
+    let output = '';
+    for(let j = 1; j <= h - i; j++) {
+      output += ' ';
     }
+    let firstCol = 2 * i - 1;
+    for(let k = 0; k < firstCol; k++) {
+      if(k === 0 || k === firstCol - 1 || i === h) {
+        output += '*';
+      } else {
+        output += ' ';
+      }
+    }
+    console.log(output);
   }
 }
 
-
-solution(4);
+solution(8);

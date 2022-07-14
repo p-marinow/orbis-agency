@@ -6,7 +6,7 @@ function solution(x) {
   console.log('number is: ', x);
   let result = 0;
   for (let i = x; i > 0; i--) {
-    result += x - i + 1;
+    result += i;
   }
 
   console.log(result);

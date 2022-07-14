@@ -11,7 +11,7 @@ function solution(x, y) {
   let result = 0;
   let log = '';
   for (let i = x; i <= y; i++) {
-    if (i ** 2 % 3 === 0) {
+    if (i % 3 === 0) {
       log += `skip ${i}`;
     } else {
       result += i ** 2;

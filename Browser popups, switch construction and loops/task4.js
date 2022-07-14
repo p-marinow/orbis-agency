@@ -10,11 +10,10 @@ function solution() {
 
 function solution2() {
   let x = 10;
-  while (x >= 1) {
+  while (x-- >= 1) {
     console.log(x);
-    x--;
   }
 }
 
-solution();
-//solution2();
+//solution();
+solution2();

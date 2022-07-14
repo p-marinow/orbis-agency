@@ -16,7 +16,7 @@ function solution(x) {
         for(let i = x.length - 1; i >= 0; i--) {
             isPalindrome += x[i]
         }
-        if(x == isPalindrome) {
+        if(x === isPalindrome) {
             console.log(`Number ${x} is palindrome!`);
         } else {
             console.log(`Number ${x} is not palindrome!`);

@@ -23,5 +23,9 @@ function solution(x) {
   console.log(`Random number is: ${x}`);
 }
 
-let x = Math.floor(Math.random() * 10) + 10;
-solution(x);
+
+function randomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+solution(randomNumber(1, 27))
