@@ -26,5 +26,21 @@ function solution(x) {
 function randomNumber(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
-solution(11)
+
+//solution(11)
 //solution(randomNumber(10, 99))
+
+
+function solution2(num) {
+    let text = '';
+
+    do {
+        num = num % 2 ? num * 3 + 1 : num / 2;
+        text += num + ', ';
+    } while (num > 1);
+
+    console.log(text.slice(0, -2));
+
+}
+
+solution2(randomNumber(10, 99))

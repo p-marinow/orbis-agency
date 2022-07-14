@@ -27,4 +27,4 @@ function randomNumber(min, max) {
 }
 
 //solution(randomNumber(1, 999))
-solution(1)
+//solution(1)

@@ -21,3 +21,20 @@ function solution() {
 }
 
 solution();
+
+function solution2() {
+    let num1 = Math.round(Math.random() * 100);
+    let num2 = Math.round(Math.random() * 100);
+    let min = Math.min(num1, num2);
+    let max = Math.max(num1, num2);
+
+    console.log(min, max);
+    for(let i = min; i <= max; i++){
+      console.log(i);
+    }
+
+}
+
+solution2()
+
+

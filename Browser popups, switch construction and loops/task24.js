@@ -29,4 +29,22 @@ function randomNumber(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
 //solution(randomNumber(10, 30000))
-solution(5432345)
+//solution(5432345)
+
+function solution2(num) {
+    num = num.toString();
+    let halfLength = num.length / 2;
+    let index = 0;
+    let palindrome = true;
+
+    do {
+        if (num[index] !== num[num.length - 1 - index]) {
+            palindrome = false;
+            break;
+        }
+    } while (index++ < halfLength);
+
+    console.log(num + ' is ' + (palindrome ? '' : 'not ') + 'palindrome!');
+}
+
+solution2(randomNumber(10, 30000))

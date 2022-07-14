@@ -1,7 +1,3 @@
-/* 
-    TODO: Да се въведат от потребителя 2 числа. И да се изведат на екрана всички числа от по-малкото до по-голямото.
-*/
-
 let utils = {
 	isNumberBetween: function(num, num1, num2) {
 		return !isNaN(num) && num > Math.min(num1, num2) && num < Math.max(num1, num2);
@@ -32,40 +28,5 @@ let utils = {
 	}
 };
 
-function solution(x, y) {
-  if (x > y) {
-    for (let i = y; i <= x; i++) {
-      console.log(i);
-    }
-  } else {
-    for (let i = x; i <= y; i++) {
-      console.log(i);
-    }
-  }
-  console.log(`Numbers are: ${x} & ${y}`);
-}
 
-let x = Math.floor(Math.random() * 10);
-let y = Math.floor(Math.random() * 10);
-solution(x, y);
-
-
-function solution2() {
-  let num1 = utils.getPromptNumber();
-  let num2 = utils.getPromptNumber();
-  let min = Math.min(num1, num2);
-  let max = Math.max(num1, num2);
-
-  console.log(min, max);
-
-  do {
-      console.log(min);
-  } while (++min <= max);
-
-  for (let i = min; i <= max; i++) {
-      console.log(i);
-  }
-
-}
-
-//solution2()
+console.log(utils.getRandomNumberBetween(1, 100, 1))

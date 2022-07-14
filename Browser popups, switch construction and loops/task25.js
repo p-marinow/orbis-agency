@@ -25,3 +25,19 @@ function solution(x) {
 }
 
 solution(6)
+
+
+function solution2(num) {
+    let count = 1;
+    let result = 1;
+    let text = '';
+
+    do {
+        result *= count;
+        text += count + '*';
+    } while(++count <= num);
+    console.log(result + ' - ' + text.slice(0, -1));
+
+}
+
+//solution2(6)

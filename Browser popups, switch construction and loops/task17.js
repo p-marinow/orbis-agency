@@ -34,5 +34,21 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+//solution(randomNumber(3, 15), randomNumber(3, 16), '#')
 
-solution(randomNumber(3, 15), randomNumber(3, 16), '#')
+
+function solution2() {
+    let width = randomNumber(3, 10);
+    let height = randomNumber(3, 10);
+    let char = '#';
+    let line;
+    for (let i = 0; i < height; i++) {
+        line = '';
+        for (let j = 0; j < width; j++) {
+            line += !i || i === height - 1 || !j || j === width - 1 ? '*' : char;
+        }
+        console.log(line);
+    }
+}
+
+solution2()

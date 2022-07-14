@@ -8,6 +8,8 @@ function solution() {
   }
 }
 
+//solution();
+
 function solution2() {
   let x = 10;
   while (x-- >= 1) {
@@ -15,5 +17,12 @@ function solution2() {
   }
 }
 
-//solution();
-solution2();
+//solution2();
+
+function solution3() {
+  for (let i = 10; i; i--) {
+    console.log(i);
+  }
+}
+
+solution3();

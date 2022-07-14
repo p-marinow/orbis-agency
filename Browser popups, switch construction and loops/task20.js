@@ -40,4 +40,17 @@ function solution() {
     }
 }
 
-solution()
+//solution()
+
+function solution2() {
+    let line;
+    for (let i = 0; i < 9; i++) {
+        line = '';
+        for (let j = 0; j < 9; j++) {
+            line += ((i + j) % 9 + 1) + ' ';
+        }
+        console.log(line.trim());
+    }
+}
+
+solution2()
