@@ -34,7 +34,7 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-//solution(randomNumber(3, 15), randomNumber(3, 16), '#')
+solution(randomNumber(3, 15), randomNumber(3, 16), '#')
 
 
 function solution2() {
