@@ -16,17 +16,17 @@ function solution(arr) {
     let sequence = [];
     let largest = [];
     let currentIndexOf = 0;
-    let outputIndex = [];
-    let outputSequence = [];
-    console.log(arr);
+    let outputIndex = 0;
+    console.log(`Array is: ${arr.join('')}`);
     for(let i = 0; i < arr.length; i++) {
         if(arr[i] === arr[i + 1] && sequence.length === 0) {
-            //! adding current value as first element in chain
+            //! adding current value as first element in sequence
             //! set indexOf to first ocurring of value
             sequence.push(arr[i]);
-            if(arr[i  + 1] !== -1) {
-                //! if element is not last element we set currentIndexOf
-                currentIndexOf = arr.indexOf(sequence[0], i - sequence.length);
+            currentIndexOf = arr.indexOf(sequence[0], i - sequence.length);
+            if(i === 0) {
+                //! if element is first in Array we set currentIndexOf of sequence
+                currentIndexOf = arr.indexOf(sequence[0]);
             }
         }
         //! if value of current index is equal to value of next index
@@ -37,33 +37,19 @@ function solution(arr) {
             //! if value of current index !== value of next index
             sequence = [];
         }
-        //console.log(sequence);
-        if(sequence.length >= largest.length) {   
+        if(sequence.length > largest.length) {
         //! if sequence length >= largest length set largest with current value of sequence
             largest = sequence;
-            outputIndex.push(currentIndexOf)
-            //console.log(outputIndex);
-        //     if(sequence[0] > largest[0]) {
-        //         largest = sequence;
-        // //         sequence += sequence;
-        // //         outputSequence.push(sequence);
-        // //         outputIndex.push(currentIndexOf);
-        // //     } else {
-        // //         largest = sequence;
-        // //         outputSequence.push(largest);
-        //     }
-            
-            //console.log(largest);
+            outputIndex = currentIndexOf;
         }
-        //console.log(largest);
-        console.log(sequence);
-        console.log(outputIndex);
+        if(sequence[0] > largest[0] && sequence.length === largest.length) {
+            largest = sequence;
+            outputIndex = currentIndexOf;
+        }
     }
-    //console.log(currentIndexOf);
-    //console.log(`Number is: ${outputSequence.pop()[0]}`);
-    //console.log(`Index of sequence: ${+outputIndex[0]}`);
-    //console.log(`Output of sequence: ${outputSequence}`);
-    //console.log(`Lenght is: ${largest.length}`);
+    console.log(`Number is: ${largest[0]}`);
+    console.log(`Index of sequence: ${outputIndex}`);
+    console.log(`Lenght is: ${largest.length}`);
 }
 
 const inputSeed = (x) => {
@@ -75,14 +61,9 @@ const inputSeed = (x) => {
     return arr;
 }
 
-//solution(inputSeed(10));
-solution([1, 1, 2, 0, 1, 1, 1, 2, 2, 2]);
-//solution([1, 1, 2, 0, 2, 2, 2, 1, 1, 1]);
-//solution([1, 1, 2, 1, 1, 1, 1, 1, 0, 2]);
-//solution([0, 1, 0, 1, 1, 1, 0, 1, 1, 1]);
+solution(inputSeed(10));
 //                               #8                   #15
 //solution([0, 1, 0, 1, 1, 1, 0, 0, 2, 2, 2, 0, 1, 0, 0, 2, 2, 2, 1, 0, 1]);
-
 function randomNumber(min, max) {
     //! function generating random int number in input range
     return Math.round(Math.random() * (max - min) + min);
