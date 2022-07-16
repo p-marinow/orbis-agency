@@ -3,15 +3,13 @@
 */
 
 function solution(arr1, arr2) {
-    let flag = false;
+    let flag = true;
     //! set flag as false, because when is true values of Arrays are equal
     for(let i = 0; i < 3; i++) {
-        //! 
+        //! check if Arrays's values on index i are equal 
         if(arr1[i] !== arr2[i]) {
             flag = false;
             break;
-        } else {
-            flag = true;
         }
     }
     flag === true 
@@ -19,7 +17,7 @@ function solution(arr1, arr2) {
         : console.log('No', arr1, arr2);
 }
 
-const input = (x) => {
+const inputSeed = (x) => {
     //! function generating Array with length equal input
     const arr = [];
     for (let i = 0; i < x; i++) {
@@ -29,7 +27,7 @@ const input = (x) => {
 }
 solution([1, 2, 3], [1, 2, 3]);
 solution([5, 6, 7], [7, 6, 5]);
-solution(input(3), input(3));
+solution(inputSeed(3), inputSeed(3));
 
 function randomNumber(min, max) {
     //! function generating random int number in input range

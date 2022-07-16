@@ -25,19 +25,20 @@ function solution(arr) {
     flag === true ? console.log(`${arr} - array is mirrored!`) : console.log(`${arr} - array is not mirrored!`);;
 }
 
-const input = (x) => {
+const inputSeed = (x) => {
     //! function generating Array with length equal input
     let arr = [];
     for (let i = 0; i < x; i++) {
-        arr.push(randomNumber(3, 9))
+        arr.push(randomNumber(1, 10))
     }
     return arr;
 }
 
-solution(input(randomNumber(1, 10)));
-//solution([6,9,5,4,4,9,8,6]);
-//solution([6,9,5,4,5,9,6]);
-//solution([4, 4, 4, 4, 4, 4]);
+solution(inputSeed(randomNumber(1, 10)));
+// solution([6, 9, 5, 4, 4, 9, 8, 6]);
+// solution([6, 9, 5, 4, 5, 9, 6]);
+// solution([6, 9, 5, 4, 4, 5, 9, 6]);
+// solution([4, 4, 4, 4, 4, 4]);
 
 function randomNumber(min, max) {
     //! function generating random int number in input range

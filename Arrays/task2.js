@@ -19,7 +19,7 @@ function solution(arr) {
     //! concatenate both Arrays
 }
 
-const input = (x) => {
+const inputSeed = (x) => {
     //! function generating Array with length equal input
     const arr = [];
     for (let i = 0; i < x; i++) {
@@ -28,7 +28,7 @@ const input = (x) => {
     return arr;
 }
 
-solution(input(5));
+solution(inputSeed(5));
 
 function randomNumber(min, max) {
     //! function generating random int number in input range

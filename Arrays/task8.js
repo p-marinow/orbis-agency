@@ -13,8 +13,8 @@
 */
 
 function solution(arr) {
-    let sequence = '';
-    let largest = '';
+    let sequence = [];
+    let largest = [];
     let currentIndexOf = 0;
     let outputIndex = [];
     let outputSequence = [];
@@ -23,40 +23,50 @@ function solution(arr) {
         if(arr[i] === arr[i + 1] && sequence.length === 0) {
             //! adding current value as first element in chain
             //! set indexOf to first ocurring of value
-            sequence += arr[i];
-            if(arr[i] + 1 !== -1) {
+            sequence.push(arr[i]);
+            if(arr[i  + 1] !== -1) {
                 //! if element is not last element we set currentIndexOf
-                currentIndexOf = arr.indexOf(+sequence[0], i);
+                currentIndexOf = arr.indexOf(sequence[0], i - sequence.length);
             }
         }
         //! if value of current index is equal to value of next index
         //! concatenate current value to sequence and set indexOf to current Array's element
         if(arr[i] === arr[i + 1]) {
-            sequence += arr[i];
+            sequence.push(arr[i]);
         } else {
             //! if value of current index !== value of next index
-            sequence = '';       
+            sequence = [];
         }
-
-        if(sequence.length >= largest.length) {
-            //! if sequence length >= largest length set largest with current value of sequence 
-            if(+sequence[0] > +largest[0]) {
-                sequence += sequence;
-                outputSequence.push(sequence);
-                outputIndex.push(currentIndexOf);
-            } else {
-                largest = sequence;
-                outputSequence.push(largest);
-            }
+        //console.log(sequence);
+        if(sequence.length >= largest.length) {   
+        //! if sequence length >= largest length set largest with current value of sequence
+            largest = sequence;
+            outputIndex.push(currentIndexOf)
+            //console.log(outputIndex);
+        //     if(sequence[0] > largest[0]) {
+        //         largest = sequence;
+        // //         sequence += sequence;
+        // //         outputSequence.push(sequence);
+        // //         outputIndex.push(currentIndexOf);
+        // //     } else {
+        // //         largest = sequence;
+        // //         outputSequence.push(largest);
+        //     }
+            
+            //console.log(largest);
         }
+        //console.log(largest);
+        console.log(sequence);
+        console.log(outputIndex);
     }
-    console.log(`Number is: ${outputSequence.pop()[0]}`);
-    console.log(`Index of sequence: ${+outputIndex[0]}`);
-    console.log(`Output of sequence: ${outputSequence}`);
-    console.log(`Lenght is: ${largest.length}`);
+    //console.log(currentIndexOf);
+    //console.log(`Number is: ${outputSequence.pop()[0]}`);
+    //console.log(`Index of sequence: ${+outputIndex[0]}`);
+    //console.log(`Output of sequence: ${outputSequence}`);
+    //console.log(`Lenght is: ${largest.length}`);
 }
 
-const input = (x) => {
+const inputSeed = (x) => {
     //! function generating Array with length equal input
     const arr = [];
     for (let i = 0; i < x; i++) {
@@ -65,8 +75,9 @@ const input = (x) => {
     return arr;
 }
 
-solution(input(10));
-//solution([1, 1, 2, 0, 1, 1, 1, 2, 2, 2]);
+//solution(inputSeed(10));
+solution([1, 1, 2, 0, 1, 1, 1, 2, 2, 2]);
+//solution([1, 1, 2, 0, 2, 2, 2, 1, 1, 1]);
 //solution([1, 1, 2, 1, 1, 1, 1, 1, 0, 2]);
 //solution([0, 1, 0, 1, 1, 1, 0, 1, 1, 1]);
 //                               #8                   #15

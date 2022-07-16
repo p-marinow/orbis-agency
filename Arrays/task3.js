@@ -13,7 +13,7 @@ function solution(x) {
     result.push(x, x);
     //! push input number twice
 
-    for (let i = 2; i <= 10; i++) {
+    for (let i = 2; i < 10; i++) {
         //! push sum of previus 2 elements into same Array
         result.push(result[i - 1] + result[i - 2])
     }
@@ -21,6 +21,7 @@ function solution(x) {
 }
 
 solution(randomNumber(1, 5));
+
 
 function randomNumber(min, max) {
     //! function generating random int number in input range

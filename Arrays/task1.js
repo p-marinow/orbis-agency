@@ -5,7 +5,7 @@
 
 function solution(arr) {
     const result = [];
-    console.log(`Array is ${arr.length} elements long`, arr)
+    console.log(`Array is ${arr.length} elements long`, arr);
     for (let i = 0; i < arr.length; i++) {
         //! every element divisible to 3 -> adds element to result[]
         arr[i] % 3 === 0 ? result.push(arr[i]) : '';
@@ -14,7 +14,7 @@ function solution(arr) {
     //! log min number from result[] and max number from result[]
 }
 
-const input = (x) => {
+const inputSeed = (x) => {
     //! function generating Array with length equal input
     const arr = [];
     for (let i = 0; i < x; i++) {
@@ -23,7 +23,7 @@ const input = (x) => {
     return arr;
 }
 
-solution(input(20));
+solution(inputSeed(20));
 
 function randomNumber(min, max) {
     //! function generating random int number in input range
