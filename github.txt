@@ -1,13 +1,13 @@
 $ git init
-
 =============
+$ git status
+$ git log --oneline
 $ git add .
 $ git commit -m "Initial commit"
-
+=============
+$ git checkout <branch_name> <version>
 =============
 $ git remote add origin <remote repository URL>
-
 $ git push origin master
-
 =============
 $ git pull <remote> <branch>
