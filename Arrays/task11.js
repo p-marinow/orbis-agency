@@ -16,12 +16,12 @@ function solution(arr) {
     }
     
     console.log(`Input Array is: ${arr}`);
-    result.length > 0
-        ? console.log(`Numbers are: ${result}`)
-        : console.log(`There are no numbers`);
+    console.log(result.length > 0
+                    ? `Numbers are: ${result}`
+                    : `There are no numbers`);
 }
 
-const inputSeed = (x) => {
+function inputSeed(x) {
     //! function generating Array with length equal input
     const arr = [];
     for (let i = 0; i < x; i++) {

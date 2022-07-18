@@ -13,15 +13,15 @@ function solution(arr) {
         //! finding total sum of all numbers in Array
         totalSum += num;
     }
+    
     let avrSum = Math.round(totalSum / arr.length);
-
     let differance = Math.abs(avrSum - arr[0]);
     //! set starting difference
     for(let num of arr) {  
-        let newDiff = Math.abs(avrSum - num);
-        if(differance >= newDiff) {
+        let smallerDifference = Math.abs(avrSum - num);
+        if(differance >= smallerDifference) {
             //! set new smaller difference between avrSum and current Number from Array
-            differance = newDiff;
+            differance = smallerDifference;
         } 
     }
 
@@ -41,7 +41,7 @@ function solution(arr) {
     console.log(`Match: ${matchingNumbers} with index: ${indexOf} \n`); 
 }
 
-const inputSeed = (x) => {
+function inputSeed(x) {
     //! function generating Array with length equal input
     const arr = [];
     for (let i = 0; i < x; i++) {
