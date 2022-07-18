@@ -3,6 +3,7 @@ $ git init
 $ git status
 $ git log --oneline
 $ git add .
+$ git restore <file_name>
 $ git commit -m "Initial commit"
 =============
 $ git checkout <branch_name> <version>
