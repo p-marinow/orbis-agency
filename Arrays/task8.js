@@ -17,7 +17,6 @@ function solution(arr) {
     let outputIndex = 0;
 
     console.log(`Array is: ${arr.join('')}`);
-
     for(let i = 0, sequence = [arr[i]], currentIndexOf = 0; i < arr.length; i++) {
         if(sequence.length === 1) {
             //! adding current value as first element in sequence
