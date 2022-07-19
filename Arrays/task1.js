@@ -14,9 +14,9 @@ function solution(arr) {
     //! log min number from result[] and max number from result[]
 }
 
-const inputSeed = (x) => {
-    //! function generating Array with length equal input
+function inputSeed(x) {
     const arr = [];
+    //! function generating Array with length equal input
     for (let i = 0; i < x; i++) {
         arr.push(randomNumber(-100, 300))
     }

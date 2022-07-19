@@ -19,7 +19,7 @@ function solution(arr) {
     //! concatenate both Arrays
 }
 
-const inputSeed = (x) => {
+function inputSeed(x) {
     //! function generating Array with length equal input
     const arr = [];
     for (let i = 0; i < x; i++) {

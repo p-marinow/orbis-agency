@@ -32,7 +32,7 @@ function solution(arr1, arr2) {
     console.log(`Second Array is: ${arr2}`);
 }
 
-const inputSeed = (x) => {
+function inputSeed(x) {
     //! function generating Array with length equal input
     const arr = [];
     for (let i = 0; i < x; i++) {

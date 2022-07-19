@@ -18,7 +18,6 @@
 
 function solution(arr) {
     let result = [];
-    let sum = 0;
     let largestSum = 0;
     let outputNumber;
     console.log(`Array is: ${arr}\n`);
@@ -29,6 +28,8 @@ function solution(arr) {
     }
 
     for(let arr of result) {
+        let sum = 0;
+        //! set sum to 0 and iterate again
         if(arr[0] !== undefined) {
             //! log first Number and slice from seed
             console.log(`Slice of number ${arr[0]} is: ${arr}`);
@@ -43,13 +44,11 @@ function solution(arr) {
             outputNumber = arr[0];
             //! set new Number for output of largest sum
         }
-        sum = 0;
-        //! set sum to 0 and iterate again
     }
     console.log(`Largest sum: ${outputNumber} - ${largestSum}`);
 }
 
-const inputSeed = (x) => {
+function inputSeed(x) {
     //! function generating Array with length equal input
     const arr = [];
     for (let i = 0; i < x; i++) {
@@ -59,6 +58,7 @@ const inputSeed = (x) => {
 }
 
 solution(inputSeed(10));
+//solution([ 1,2,4,2,1,4,3,4,2,4])
 //solution([3, 2, 1, 3, 4, 2, 1, 4, 1, 5]);
 
 function randomNumber(min, max) {

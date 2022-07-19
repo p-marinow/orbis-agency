@@ -8,20 +8,17 @@
     * Масив: 3, 3, 6, 9, 15, 24, 39, 63, 102, 165
 */
 
-function solution(x) {
-    const result = [];
-    result.push(x, x);
-    //! push input number twice
+function solution(x, arrTotal) {
+    const result = [x, x];
 
-    for (let i = 2; i < 10; i++) {
+    for (let i = result.length; i < arrTotal; i++) {
         //! push sum of previus 2 elements into same Array
         result.push(result[i - 1] + result[i - 2])
     }
     console.log(result);
 }
 
-solution(randomNumber(1, 5));
-
+solution(randomNumber(1, 5), 10);
 
 function randomNumber(min, max) {
     //! function generating random int number in input range

@@ -12,17 +12,20 @@ function solution(arr) {
     console.log(`Input Array is: ${arr}`);
     for(let i = 0; i < arr.length - 1; i++) {
         if(arr[i] > arr[i + 1]) {
+            //! if left number is greater than right number
             result.push('>', arr[i + 1]);
         } else {
-            arr[i] < arr[i + 1] 
+            arr[i] < arr[i + 1]
+            //! if right number is greater than left number
                 ? result.push('<', arr[i + 1])
+                //! if both numbers not  <, > they are equal
                 : result.push('=', arr[i + 1]);
         }
     }
     console.log(`Result is: ${result}`);
 }
 
-const inputSeed = (x) => {
+function inputSeed(x) {
     //! function generating Array with length equal input
     const arr = [];
     for (let i = 0; i < x; i++) {

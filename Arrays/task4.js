@@ -10,22 +10,23 @@
 */
 
 function solution(arr) {
-    let flag = false;
-    for( let i = 1; i <= arr.length / 2; i++) {
+    let flag = true;
+    //! set flag as true, because when is false values of Arrays are NOT equal
+    for( let i = 0, lastIndex = arr.length - 1; i < arr.length / 2; i++) {
         //! iterate through middle of array
-        if(arr[i - 1] !== arr[arr.length - i]) {
+        if(arr[i] !== arr[lastIndex - i]) {
         //! check if index from start not equal index from end
             flag = false;
             break;
-        } else {
-            flag = true;
         }
     }
-
-    flag === true ? console.log(`${arr} - array is mirrored!`) : console.log(`${arr} - array is not mirrored!`);;
+  
+    console.log(`${arr} - array is`, flag === true 
+        ? `mirrored!`
+        : `not mirrored!`);
 }
 
-const inputSeed = (x) => {
+function inputSeed(x) {
     //! function generating Array with length equal input
     let arr = [];
     for (let i = 0; i < x; i++) {
@@ -34,7 +35,7 @@ const inputSeed = (x) => {
     return arr;
 }
 
-solution(inputSeed(randomNumber(1, 10)));
+solution(inputSeed(randomNumber(2, 10)));
 // solution([6, 9, 5, 4, 4, 9, 8, 6]);
 // solution([6, 9, 5, 4, 5, 9, 6]);
 // solution([6, 9, 5, 4, 4, 5, 9, 6]);

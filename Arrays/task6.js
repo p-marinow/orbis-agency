@@ -4,20 +4,21 @@
 
 function solution(arr1, arr2) {
     let flag = true;
-    //! set flag as false, because when is true values of Arrays are equal
+    //! set flag as true, because when is false values of Arrays are NOT equal
     for(let i = 0; i < 3; i++) {
-        //! check if Arrays's values on index i are equal 
+        //! check if Arrays's values on index i are NOT equal 
         if(arr1[i] !== arr2[i]) {
             flag = false;
             break;
         }
     }
-    flag === true 
-        ? console.log('Yes', arr1, arr2)
-        : console.log('No', arr1, arr2);
+    
+    console.log(flag === true
+                    ? `Yes`
+                    : `No`, arr1, arr2);
 }
 
-const inputSeed = (x) => {
+function inputSeed(x) {
     //! function generating Array with length equal input
     const arr = [];
     for (let i = 0; i < x; i++) {
