@@ -13,12 +13,10 @@
 */
 
 function solution(arr) {
-    let sequence = [];
     let largest = [];
-    let currentIndexOf = 0;
     let outputIndex = 0;
     console.log(`Array is: ${arr.join('')}`);
-    for(let i = 0; i < arr.length; i++) {
+    for(let i = 0, sequence = [], currentIndexOf = 0; i < arr.length; i++) {
         if(arr[i] === arr[i + 1] && sequence.length === 0) {
             //! adding current value as first element in sequence
             //! set indexOf to first ocurring of value
@@ -37,6 +35,7 @@ function solution(arr) {
             //! if value of current index !== value of next index
             sequence = [];
         }
+
         if(sequence.length > largest.length) {
         //! if sequence length >= largest length set largest with current value of sequence
             largest = sequence;
@@ -64,6 +63,7 @@ const inputSeed = (x) => {
 solution(inputSeed(10));
 //                               #8                   #15
 //solution([0, 1, 0, 1, 1, 1, 0, 0, 2, 2, 2, 0, 1, 0, 0, 2, 2, 2, 1, 0, 1]);
+
 function randomNumber(min, max) {
     //! function generating random int number in input range
     return Math.round(Math.random() * (max - min) + min);
