@@ -26,6 +26,33 @@ function solution(arr) {
         : `not mirrored!`);
 }
 
+function solution2() {
+    let num = utils.getPromptNumber(),
+	arr = new Array(num),
+	isMirrored = true;
+    //! set value as 'true', so we can break if need
+
+    for (let i = 0; i < num; i++) {
+        arr[i] = utils.getPromptNumber();
+    }
+
+    for (let i = 0, half = Math.floor(num / 2); i < half; i++) {
+        //! iterate through half Array
+        console.log(i);
+        if (arr[i] !== arr[num - 1 - i]) {
+            //! if value of current index is not equal to value of Arrays length - 1 - current index of Array
+
+            isMirrored = false;
+            //! set value as false and break
+            break;
+        }
+    }
+
+    console.log('num: ' + num);
+    console.log('arr: ' + arr);
+    console.log('isMirrored: ' + isMirrored);
+}
+
 function inputSeed(x) {
     //! function generating Array with length equal input
     let arr = [];
@@ -36,12 +63,17 @@ function inputSeed(x) {
 }
 
 solution(inputSeed(randomNumber(2, 10)));
-// solution([6, 9, 5, 4, 4, 9, 8, 6]);
-// solution([6, 9, 5, 4, 5, 9, 6]);
-// solution([6, 9, 5, 4, 4, 5, 9, 6]);
-// solution([4, 4, 4, 4, 4, 4]);
+//solution2();
 
 function randomNumber(min, max) {
     //! function generating random int number in input range
     return Math.round(Math.random() * (max - min) + min);
+}
+
+function getPromptNumber(text, error) {
+    let num;
+    do {
+        num = +prompt((error || num !== undefined ? 'Не сте въвели валидно число!\n' : '') + (text ? text : 'Въведете число.'));
+    } while (isNaN(num));
+    return num;
 }

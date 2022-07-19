@@ -18,6 +18,45 @@ function solution(arr1, arr2) {
                     : `No`, arr1, arr2);
 }
 
+function solution2() {
+    var arr1 = new Array(3),
+    arr2 = new Array(3);
+    let sameValues = true;
+
+    for (let i = 0, len = arr1.length; i < len; i++) {
+        arr1[i] = utils.getPromptNumber();
+    }
+
+    for (let i = 0, len = arr2.length; i < len; i++) {
+        arr2[i] = utils.getPromptNumber();
+    }
+
+    console.log('arr1: ' + arr1);
+    console.log('arr2: ' + arr2);
+
+    for (let i = 0, len = arr1.length, index; i < len; i++) {
+        //! iterate through full size of Array
+        
+        index = arr2.indexOf(arr1[i]);
+        //! set index with second Array's indexOf value from first Array on current index     
+
+        if (index !== -1) {
+            //! if there is any index 
+
+            arr2.splice(index, 1);
+            //! splice 1 element from second Array's indexOf value from first Array on current index 
+        } else {
+            //! if there is not value in first Array on current index
+            //! set false and break
+            sameValues = false;
+            break;
+        }
+    }
+
+    console.log('sameValues: ' + sameValues);
+}
+
+
 function inputSeed(x) {
     //! function generating Array with length equal input
     const arr = [];
@@ -26,9 +65,9 @@ function inputSeed(x) {
     }
     return arr;
 }
-solution([1, 2, 3], [1, 2, 3]);
-solution([5, 6, 7], [7, 6, 5]);
+
 solution(inputSeed(3), inputSeed(3));
+//solution2();
 
 function randomNumber(min, max) {
     //! function generating random int number in input range

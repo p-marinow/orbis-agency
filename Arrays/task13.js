@@ -32,18 +32,37 @@ function solution(arr1, arr2) {
     console.log(`Second Array is: ${arr2}`);
 }
 
-function inputSeed(x) {
+function solution2(arr1, arr2) {
+    console.log('before arr1: ' + arr1);
+    console.log('before arr2: ' + arr2);
+
+    for (let i = arr2.length - 1, index, removed; i >= 0; i--) {
+        index = arr1.indexOf(arr2[i]);
+        if (index !== -1) {
+            removed = arr2.splice(i, 1);
+            arr1.splice(index + 1, 0, 'n' + removed[0]);
+        }
+    }
+
+    console.log('after arr1: ' + arr1);
+    console.log('after arr2: ' + arr2);
+
+}
+
+function uniqueInputSeed(x) {
     //! function generating Array with length equal input
     const arr = [];
-    for (let i = 0; i < x; i++) {
-        arr.push(randomNumber(1, 20))
-    }
+    do {
+        number = randomNumber(1, 20);
+        if(arr.includes(number) === false) {
+            arr.push(number);
+        }
+    } while(arr.length <= x);
     return arr;
 }
 
-solution(inputSeed(10), inputSeed(10));
-//solution([1, 2, 3, 4, 5], [1, 2, 4, 5, 2, 7])
-//solution([8, 16, 11, 19, 20, 3, 18, 7, 10], [3, 11, 14, 12, 6, 7, 8, 10, 13, 19])
+solution(uniqueInputSeed(10), uniqueInputSeed(10));
+//solution2(uniqueInputSeed(10), uniqueInputSeed(10))
 
 function randomNumber(min, max) {
     //! function generating random int number in input range

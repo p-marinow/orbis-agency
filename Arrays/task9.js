@@ -15,6 +15,20 @@ function solution(arr) {
     console.log(arr);
 }
 
+function solution2(arr) {
+    console.log('start arr: ' + arr);
+    for (let i = 1, len = arr.length; i < len; i++) {
+        //? iterate through full length of Array
+
+        let removed = arr.splice(i, 1);
+        //! take a single part starting from current index
+
+        arr.unshift(removed[0]);
+        //! put part in front of Array
+    }
+    console.log('reversed arr: ' + arr);
+}
+
 function inputSeed(x) {
     //! function generating Array with length equal input
     const arr = [];
@@ -25,6 +39,7 @@ function inputSeed(x) {
 }
 
 solution(inputSeed(10));
+solution2(inputSeed(10));
 
 function randomNumber(min, max) {
     //! function generating random int number in input range

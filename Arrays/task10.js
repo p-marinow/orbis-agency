@@ -14,11 +14,11 @@ function solution(arr) {
         totalSum += num;
     }
     
-    let avrSum = Math.round(totalSum / arr.length);
-    let differance = Math.abs(avrSum - arr[0]);
+    let avrValue = Math.round(totalSum / arr.length);
+    let differance = Math.abs(avrValue - arr[0]);
     //! set starting difference
-    for(let num of arr) {  
-        let smallerDifference = Math.abs(avrSum - num);
+    for(let num of arr) {
+        let smallerDifference = Math.abs(avrValue - num);
         if(differance >= smallerDifference) {
             //! set new smaller difference between avrSum and current Number from Array
             differance = smallerDifference;
@@ -27,7 +27,7 @@ function solution(arr) {
 
     for(let num of arr) {
         //! check for Numbers that match our smallest difference
-        Math.abs(avrSum - num) === differance
+        Math.abs(avrValue - num) === differance
             ? matchingNumbers.push(num)
             : '';
     }
@@ -37,8 +37,42 @@ function solution(arr) {
         indexOf.push(arr.indexOf(num));
     } 
 
-    console.log(`Avr. number of input Array [${arr}] is: ${avrSum}`);
+    console.log(`Avr. number of input Array [${arr}] is: ${avrValue}`);
     console.log(`Match: ${matchingNumbers} with index: ${indexOf} \n`); 
+}
+
+function solution2(arr) {
+	let sum = 0;
+	let average;
+	let closest;
+
+    for (let i = 0, len = arr.length; i < len; i++) {
+        //? iterate through full length of Array to sum all values of Array
+        sum += arr[i];
+    }
+
+    average = sum / arr.length;
+
+    for (let i = 0, len = arr.length; i < len; i++) {
+        if (closest === undefined || Math.abs(average - arr[i]) < Math.abs(average - closest)) {
+            closest = arr[i];
+        }
+    }
+
+    // // solution 2
+    // let arr2 = arr.slice(); // copy the array
+    // arr2.push(average);
+    // arr2.sort(function(a, b) { return a - b });
+
+    // let avgIndex = arr2.indexOf(average);
+    // let prevDiff = average - arr2[avgIndex - 1];
+    // let nextDiff = arr2[avgIndex + 1] - average;
+    // closest = prevDiff < nextDiff ? arr2[avgIndex - 1] : arr2[avgIndex + 1];
+
+    // output
+    console.log('arr: ' + arr);
+    console.log('average: ' + average);
+    console.log('closest: ' + closest);
 }
 
 function inputSeed(x) {
@@ -51,8 +85,7 @@ function inputSeed(x) {
 }
 
 solution(inputSeed(5));
-//solution([1, 2, 3, 4, 5])
-//solution([1, 5, 4, 2]);
+//solution2(inputSeed(5));
 
 function randomNumber(min, max) {
     //! function generating random int number in input range

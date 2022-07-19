@@ -7,22 +7,21 @@
 */
 
 function solution(arr) {
-    let result = [];
-    result.push(arr[0]);
     console.log(`Input Array is: ${arr}`);
-    for(let i = 0; i < arr.length - 1; i++) {
-        if(arr[i] > arr[i + 1]) {
+    for(let i = arr.length - 1; i > 0; i--) {
+        //? iterate backward through full length of Array
+        if(arr[i - 1] > arr[i]) {
             //! if left number is greater than right number
-            result.push('>', arr[i + 1]);
+            arr.splice(i, 0, '>');
         } else {
-            arr[i] < arr[i + 1]
+            arr[i - 1] < arr[i]
             //! if right number is greater than left number
-                ? result.push('<', arr[i + 1])
-                //! if both numbers not  <, > they are equal
-                : result.push('=', arr[i + 1]);
+                ? arr.splice(i, 0, '<')
+                //! if both numbers not  >, < they are equal
+                : arr.splice(i, 0, '=');
         }
     }
-    console.log(`Result is: ${result}`);
+    console.log(`Result is: ${arr}`);
 }
 
 function inputSeed(x) {
@@ -35,8 +34,6 @@ function inputSeed(x) {
 }
 
 solution(inputSeed(10));
-//solution([1, 2, 3, 4, 5])
-//solution([1, 5, 4, 2]);
 
 function randomNumber(min, max) {
     //! function generating random int number in input range

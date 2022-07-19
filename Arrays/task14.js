@@ -48,6 +48,29 @@ function solution(arr) {
     console.log(`Largest sum: ${outputNumber} - ${largestSum}`);
 }
 
+function solution2(arr) {
+    let largestSum;
+
+    console.log('arr: ' + arr);
+    for (let i = 1, firstIndex, lastIndex, piece, sum; i <= 5; i++) {
+        firstIndex = arr.indexOf(i);
+        lastIndex = arr.lastIndexOf(i);
+        sum = 0;
+        piece = [];
+        if (firstIndex !== -1) {
+            piece = arr.slice(firstIndex, lastIndex + 1);
+            for (let j = 0, len = piece.length; j < len; j++) {
+                sum += piece[j];
+            }
+        }
+        console.log(i + ' - ' + piece + ' - ' + sum);
+        if (largestSum === undefined || largestSum[1] < sum) {
+            largestSum = [i, sum];
+        }
+    }
+    console.log('Largest sum: ' + largestSum.join(' - '));
+}
+
 function inputSeed(x) {
     //! function generating Array with length equal input
     const arr = [];
@@ -58,8 +81,7 @@ function inputSeed(x) {
 }
 
 solution(inputSeed(10));
-//solution([ 1,2,4,2,1,4,3,4,2,4])
-//solution([3, 2, 1, 3, 4, 2, 1, 4, 1, 5]);
+//solution2(inputSeed(10));
 
 function randomNumber(min, max) {
     //! function generating random int number in input range

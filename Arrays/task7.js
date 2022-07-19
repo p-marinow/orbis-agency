@@ -13,7 +13,7 @@ function solution(arr) {
     const output = [];
     for (let i = 0; i < arr.length; i++) {
         //! arr.slice(6 - 1, 6) + arr.slice(6 + 1, 6 + 2)
-        output[i] = +arr.slice(i - 1, i) + +arr.slice(i + 1, i + 2);
+        output[i] = (arr[i - 1] || 0) + (arr[i + 1] || 0);
     }
     console.log(`Array is: `, arr);
     console.log(output.join(', '));
@@ -29,7 +29,6 @@ function inputSeed(x) {
 }
 
 solution(inputSeed(10));
-//solution([2, 6, 2, 3, 5, 7, 1, 4, 9, 1]);
 
 function randomNumber(min, max) {
     //! function generating random int number in input range

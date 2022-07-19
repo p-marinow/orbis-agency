@@ -21,6 +21,23 @@ function solution(arr) {
                     : `There are no numbers`);
 }
 
+function solution2(arr) {
+    const arr2 = [];
+
+    for (var i = 0, len = arr.length; i < len; i++) {
+        //? iterate through full size of Array
+        if (arr[i] > 5 && arr[i] % 5 === 0) {
+            //! checking IF value of current index of Array is greater than 5 AND divisible to 5
+
+            arr2.push(arr[i]);
+            //! set new value in second Array
+        }
+    }
+
+    console.log('arr1: ' + arr);
+    console.log('arr2: ' + arr2);
+}
+
 function inputSeed(x) {
     //! function generating Array with length equal input
     const arr = [];
@@ -31,6 +48,7 @@ function inputSeed(x) {
 }
 
 solution(inputSeed(20));
+solution2(inputSeed(20));
 
 function randomNumber(min, max) {
     //! function generating random int number in input range

@@ -19,6 +19,24 @@ function solution(arr) {
     //! concatenate both Arrays
 }
 
+function solution2() {
+    const arr1 = createRandomArray(getRandomNumberBetween(5, 10, true));
+    //! generate Array with random values with length(random number between 5, 10)
+ 	let arr2 = new Array(arr1.length * 2);
+    //! declarate new Array with double size of Array with random values
+    for (let i = 0, len = arr1.length; i < len; i++) {
+        //! iterate through full length of Array with random values
+
+        //! set value for current index of new Array equal to value of current index of Array with random values 
+        arr2[i] = arr1[i];
+
+        //! set value for current index plus length of Array with random values equal to value of last index minus current index of Array with random values
+        arr2[i + len] = arr1[len - 1 - i];
+    }
+    console.log('arr1: ' + arr1);
+    console.log('arr2: ' + arr2);
+}
+
 function inputSeed(x) {
     //! function generating Array with length equal input
     const arr = [];
@@ -29,8 +47,27 @@ function inputSeed(x) {
 }
 
 solution(inputSeed(5));
+//solution2()
 
 function randomNumber(min, max) {
     //! function generating random int number in input range
     return Math.round(Math.random() * (max - min) + min);
+}
+
+function createRandomArray(length, min, max) {
+	min = min || 0; // use 0 as default value
+	max = max || 100; // use 100 as default value
+	const arr = new Array(length);
+	for (let i = 0; i < arr.length; i++) {
+		arr[i] = min + Math.round(Math.random() * (max - min));
+	}
+	return arr;
+}
+
+function getRandomNumberBetween(min, max, round) {
+	let num = min + Math.random() * (max - min);
+	if (round) {
+		num = Math.round(num);
+	}
+	return num;
 }
