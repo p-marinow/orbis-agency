@@ -3,15 +3,23 @@
 */
 
 function solution(nestedArr) {
-    let row = [[],[]];
+    let row = [];
+    let sumOfRow = 0;
+    let sum = 0;
+    
     console.log(`Array is: `, nestedArr);
     for (let i = 0, len = nestedArr.length; i < len; i++) {
-        for ( let j = 0, len = nestedArr[i].length; j < len; j++) {      
-            row[1].push(nestedArr[i][j]);
+        for ( let j = 0, len = nestedArr[i].length; j < len; j++) {   
+            sumOfRow += nestedArr[i][j];
         }
-        row[0].push(i)
-        console.log(`${row[0]} ${row[1]}`);
+        console.log(i, sumOfRow);
+        if (sumOfRow >= sum) {
+            sum = sumOfRow;
+            [row[0], row[1]] = [nestedArr[i], i];  
+        }
+        sumOfRow = 0;
     }
+    console.log(`Largest sum of numbers is on row in a row ${row[1] + 1}`, row[0]);
 }
 
 function inputSeed(m, n) {
