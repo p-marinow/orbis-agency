@@ -9,22 +9,27 @@ function solution(nestedArr) {
     
     console.log(`Array is: `, nestedArr);
     for (let i = 0, len = nestedArr.length; i < len; i++) {
-        for ( let j = 0, len = nestedArr[i].length; j < len; j++) {   
+        //! iterate through all rows
+        for ( let j = 0, len = nestedArr[i].length; j < len; j++) {
+            //! iterate through every column in a row
+
             sumOfRow += nestedArr[i][j];
+            //! add every cell in a sumOfRow
         }
-        console.log(i, sumOfRow);
+        
         if (sumOfRow >= sum) {
+            //! set new bigger sumOfRow and save current index and current row
             sum = sumOfRow;
-            [row[0], row[1]] = [nestedArr[i], i];  
+            [row[0], row[1]] = [i, nestedArr[i]];  
         }
         sumOfRow = 0;
     }
-    console.log(`Largest sum of numbers is on row in a row ${row[1] + 1}`, row[0]);
+    console.log(`Largest sum of numbers is on row in a row ${row[0] + 1}`, row[1]);
 }
 
 function inputSeed(m, n) {
     const arr = [];
-    //! function generating Array with length equal input
+    //! function generating Double dimensional Array with size M x N
     for (let i = 0; i < m; i++) {
         arr[i] = [];
         for (let j = 0; j < n; j++) {
