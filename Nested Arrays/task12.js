@@ -36,11 +36,9 @@ function solution(nestedArr) {
 
     for(let i = 0; i < sumArr.length; i++) {
         console.log(rowArr[i], `Sum is: ${sumArr[i]}`);
+        sumOfAllRows += sumArr[i];
     }
-
-    for (let num of sumArr) {
-        sumOfAllRows += num;
-    }
+    
     console.log(`\nTotal sum of all even rows is: ${sumOfAllRows}`);
 }
 

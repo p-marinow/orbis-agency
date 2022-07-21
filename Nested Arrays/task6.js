@@ -1,16 +1,15 @@
 /*
     TODO: Напишете програма, която намира най-често срещания елемент в масив.
     * Пример:
-    * [4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3] 
+    * [4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3]
     * Изход:
     * 4 - 5 пъти.
 */
 
 function solution(arr) {
     console.log(`Array is: `, arr);
-    let outputNumber;
-    let mostSeen = 0;
-    for (let i = 0, count = 0; i < arr.length; i++) {
+
+    for (let i = 0, len = arr.length, count = 0, outputNumber, mostSeen = 0; i < len; i++) {
         //! iterate through full size of Array of numbers
 
         let startValue = arr[i];
@@ -29,9 +28,11 @@ function solution(arr) {
                 mostSeen = count;
                 outputNumber = num;
             }
-        }    
+        }
+
+        i === len - 1 ? console.log(`Number is: ${outputNumber} - ${mostSeen}`) : '';
+        //! log result at last iteration
     }
-    console.log(`Number is: ${outputNumber} - ${mostSeen}`);
 }
 
 function inputSeed(x) {

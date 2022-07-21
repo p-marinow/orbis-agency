@@ -17,13 +17,20 @@
 */
 
 function solution(nestedArr) {
+    console.log(nestedArr);
+
     let largestNum = Number.MIN_SAFE_INTEGER;
     let smallestNum = Number.MAX_SAFE_INTEGER;
-    console.log(nestedArr);
-    for (let arr of nestedArr) {
-        for (let num of arr) {
-            num > largestNum ? largestNum = num : '';
-            num < smallestNum ? smallestNum = num : '';
+
+    for (let row of nestedArr) {
+        //! iterate through all rows
+        for (let num of row) {
+            //! for every num in row checking for new values
+            num > largestNum 
+                ? largestNum = num 
+                : num < smallestNum 
+                    ? smallestNum = num 
+                    : '';
         }
     }
     console.log(`Largest num is: ${largestNum}\nSmallest num is: ${smallestNum}`);

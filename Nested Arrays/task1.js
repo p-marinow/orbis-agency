@@ -16,12 +16,12 @@ function solution(nestedArr) {
             sumOfRow += nestedArr[i][j];
             //! add every cell in a sumOfRow
         }
-        
-        if (sumOfRow >= sum) {
-            //! set new bigger sumOfRow and save current index and current row
-            sum = sumOfRow;
-            [row[0], row[1]] = [i, nestedArr[i]];  
-        }
+
+        sumOfRow >= sum
+        //! set new bigger sumOfRow and save current index and current row
+            ? (sum = sumOfRow, [row[0], row[1]] = [i, nestedArr[i]])
+            : '';
+
         sumOfRow = 0;
     }
     console.log(`Largest sum of numbers is on row in a row ${row[0] + 1}`, row[1]);

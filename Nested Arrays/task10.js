@@ -15,7 +15,6 @@
     * [16,12, 8, 4]
 */
 
-
 function solution() {
     let arr = [
             [1, 2, 3, 4],
@@ -31,56 +30,61 @@ function solution() {
     for (let i = arr.length - 1; i >= 0; i--) {
         //! turn right >>>
         for (let j = arr.length - 1; j >= 0; j--) {
+            //? 3x0 2x0 ...
+            //? 3x1 ... 0x2
+            //? ... 2x3 0x3
+            //! on row[0] -> [lastIndex--][indexOfRow]
             copyArrayRight[i].push(arr[j][i]);
         }
     }
 
-    for (let i = arr.length - 1; i >= 0; i--) {
+    for (let row of arr) {
         //! turn left <<<
-        for (let j = arr.length - 1; j >= 0; j--) {
-            copyArrayLeft[j][i] = arr[i][j];
+        for (let i = 0, len = arr.length - 1; i <= len; i++) {   
+            //? ... ... 3x3
+            //? 0x1 ... ...
+            //? 0x0 1x0 ...
+            //! from top to bottom rows -> PUSH element from current row (start from first row) with index[i](start from index 0)
+            //! into last copy[] row => [ixRow]
+            //? ex: on row[last--].push(row[0], row[1])
+            copyArrayLeft[len - i].push(row[i]);
         }
     }
 
     console.log(`Rotate right: `, copyArrayRight);
     console.log(`Rotate left: `, copyArrayLeft);
 
-    // let arr2 = [
-    //     [1, 2, 3, 4, 5],
-    //     [5, 6, 7, 8],
-    //     [9, 10, 11, 12],
-    //     [13, 14, 15, 16],
-    //     [5]
-    // ];
-    
-    // let copyArray2 = [[],[],[],[],[]];
+////==========================================================
 
-    // for (let i = arr2.length - 1; i >= 0; i--) {
-    //     //! turn right <
+    // let arr2 = [
+    //     [1, 2, 3, 4],
+    //     [5, 6, 7, 8],
+    //     [9, 10, 11, 12, 'x'],
+    //     [13, 14, 15, 16],
+    //     ['x'],
+    //     ['x']
+    // ];
+
+    //let copyArray = [[],[],[],[],[]];
+
+    // let longest = 0;
+    // for (let row of arr2) {
+    //     //! check for longest length of row
+    //     longest < row.length
+    //         ? longest = row.length
+    //         : '';
+    // }
+    
+    // for (let i = longest - 1; i >= 0; i--) {
+    //     //! turn right >>>
     //     for (let j = arr2.length - 1; j >= 0; j--) {
-    //         copyArray2[i].push(arr2[j][i]);
+    //         arr2[j][i] !== undefined 
+    //             ? copyArray2[i].push(arr2[j][i])
+    //             : copyArray2[i].push('');   
     //     }
     // }
 
-    // console.log('Rotated Array2 is: ',copyArray2);
-
+    //console.log('Rotated Array2 is: ',copyArray2);
 }
 
-function inputSeed(m, n) {
-    const arr = [];
-    //! function generating Double dimensional Array with size M x N
-    for (let i = 0; i < m; i++) {
-        arr[i] = [];
-        for (let j = 0; j < n; j++) {
-            arr[i][j] = randomNumber(1, 100)
-        }   
-    }
-    return arr;
-}
-
-solution(inputSeed(4, 4));
-
-function randomNumber(min, max) {
-    //! function generating random int number in input range
-    return Math.round(Math.random() * (max - min) + min);
-}
+solution();

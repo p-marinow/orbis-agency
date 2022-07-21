@@ -4,18 +4,17 @@
 */
 
 function solution(nestedArr) {
-    let sum = 0;
-    let avg = 1;
-    let totalCells = 0;
     console.log(`Array is: `, nestedArr);
-    for (let i = 0, len = nestedArr.length; i < len; i++) {
+    for (let i = 0, len = nestedArr.length - 1, sum = 0, avg = 1, totalCells = 0; i <= len; i++) {
+        
         for (let j = 0; j < nestedArr[i].length; j++) {
             sum += nestedArr[i][j];
             totalCells++;
         }
+        
+        i === 0
+            ? (avg = sum / totalCells, console.log(`Sum is: ${sum}, Avg: ${avg.toFixed(0)}`)) : '';
     }
-    avg = sum / totalCells;
-    console.log(`Sum is: ${sum}, Avg: ${avg.toFixed(2)}`);
 }
 
 function inputSeed(m, n) {

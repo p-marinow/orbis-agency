@@ -3,14 +3,14 @@
     TODO: Под максимална подматрица се разбира подматрица, която има максимална сума на елементите, които я съставят.
 */
 
-function solution(arr) {
+function solution(nestedArray) {
     let highestResult = [];
     let highestSum = 0;
-    console.log(arr);
-    for (let row = 0, len = arr.length - 1, currentResult = [], currentSum = 0; row < len; row++) {
+    console.log(nestedArray);
+    for (let row = 0, len = nestedArray.length - 1, currentResult = [], currentSum = 0; row < len; row++) {
         //! iterate through all rows
 
-        for (let col = 0, len = arr[row].length - 1; col < len; col++) {
+        for (let col = 0, len = nestedArray[row].length - 1; col < len; col++) {
             //! iterate through columns in a nestedArray's rows
 
             for (let boxRow = row, boxSize = 2; boxRow < row + boxSize; boxRow++) {
@@ -19,17 +19,15 @@ function solution(arr) {
                 for (let boxCol = col; boxCol < col + boxSize; boxCol++) {
                     //! set column of 'box': current col with range 2
 
-                    currentResult.push(arr[boxRow][boxCol]);
-                    currentSum += arr[boxRow][boxCol];
+                    currentResult.push(nestedArray[boxRow][boxCol]);
+                    currentSum += nestedArray[boxRow][boxCol];
                     //! save values of current cells in 'box' 2x2
                 }
             }
 
-            if (highestSum < currentSum) {
-                highestSum = currentSum;
-                highestResult = currentResult;
-                //! set new highest sum and new result[]
-            }
+            highestSum < currentSum ? (highestSum = currentSum, highestResult = currentResult) : '';
+            //! set new highest sum and new result[]
+            
             currentSum = 0;
             currentResult = [];
             //! reset values for next loop

@@ -3,17 +3,15 @@
 */
 
 function solution(nestedArr) {
-    let sumOfDiagonal = 1;
     console.log(`Array is:`, nestedArr);
-    for (let i = 0, len = nestedArr.length; i < len; i++) {
+    for (let i = 0, len = nestedArr.length, multiOfDiagonal = 1; i < len; i++) {
         //! iterate through all rows
-        for (let j = i; j <= i; j++) {
-            //! iterate through elements match 1:1 location
-            //? ex: arr[0][0], arr[1][1], arr[2][2]
-            sumOfDiagonal *= nestedArr[i][j];
-        }
+        //? ex: arr[0][0], arr[1][1], arr[2][2]
+        multiOfDiagonal *= nestedArr[i][i];
+        i === len - 1
+            ? console.log(`Sum of main diagonal is: ${multiOfDiagonal}`)
+            : '';
     }
-    console.log(`Sum of main diagonal is: ${sumOfDiagonal}`);
 }
 
 function inputSeed(m) {

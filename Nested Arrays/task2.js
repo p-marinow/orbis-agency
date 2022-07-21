@@ -4,19 +4,16 @@
 */
 
 function solution(nestedArr) {
-    let sumOfDiagonal = [];
     console.log(nestedArr);
-    for (let i = 0, len = nestedArr.length; i < len; i++) {
+    for (let i = 0, len = nestedArr.length, sumOfDiagonal = []; i < len; i++) {
         //! iterate through all rows
-        for (let j = i; j <= i; j++) {
-            //! iterate through elements match 1:1 location
-            //? ex: arr[0][0], arr[1][1], arr[2][2]
-            sumOfDiagonal.push(nestedArr[i][j]);
-        }
+        //? ex: arr[0][0], arr[1][1], arr[2][2]
+        sumOfDiagonal.push(nestedArr[i][i]);
+        i === len - 1
+            ? console.log(sumOfDiagonal)
+            : '';
     }
-    console.log(sumOfDiagonal);
 }
-
 
 function inputSeed(m) {
     const arr = [];
