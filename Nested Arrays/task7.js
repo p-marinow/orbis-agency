@@ -26,11 +26,13 @@ function solution(nestedArr) {
         //! iterate through all rows
         for (let num of row) {
             //! for every num in row checking for new values
-            num > largestNum 
-                ? largestNum = num 
-                : num < smallestNum 
-                    ? smallestNum = num 
-                    : '';
+
+            if (num > largestNum) {
+                largestNum = num;
+            } 
+            if (num < smallestNum) {
+                smallestNum = num;
+            }
         }
     }
     console.log(`Largest num is: ${largestNum}\nSmallest num is: ${smallestNum}`);

@@ -16,75 +16,79 @@
 */
 
 function solution() {
-    let arr = [
-            [1, 2, 3, 4],
-            [5, 6, 7, 8],
-            [9, 10, 11, 12],
-            [13, 14, 15, 16]
-        ];
+    // let arr = [
+    //         [1, 2, 3, 4],
+    //         [5, 6, 7, 8],
+    //         [9, 10, 11, 12],
+    //         [13, 14, 15, 16]
+    //     ];
 
-    let copyArrayRight = [[], [], [], []];
-    let copyArrayLeft = [[], [], [], []];
-    console.log(`Array is: `, arr);
+    // console.log(`Array is: `, arr);
 
-    for (let i = arr.length - 1; i >= 0; i--) {
-        //! turn right >>>
-        for (let j = arr.length - 1; j >= 0; j--) {
-            //? 3x0 2x0 ...
-            //? 3x1 ... 0x2
-            //? ... 2x3 0x3
-            //! on row[0] -> [lastIndex--][indexOfRow]
-            copyArrayRight[i].push(arr[j][i]);
-        }
-    }
+    // let copyArrayRight = [];
 
-    for (let row of arr) {
-        //! turn left <<<
-        for (let i = 0, len = arr.length - 1; i <= len; i++) {   
-            //? ... ... 3x3
-            //? 0x1 ... ...
-            //? 0x0 1x0 ...
-            //! from top to bottom rows -> PUSH element from current row (start from first row) with index[i](start from index 0)
-            //! into last copy[] row => [ixRow]
-            //? ex: on row[last--].push(row[0], row[1])
-            copyArrayLeft[len - i].push(row[i]);
-        }
-    }
-
-    console.log(`Rotate right: `, copyArrayRight);
-    console.log(`Rotate left: `, copyArrayLeft);
-
-////==========================================================
-
-    // let arr2 = [
-    //     [1, 2, 3, 4],
-    //     [5, 6, 7, 8],
-    //     [9, 10, 11, 12, 'x'],
-    //     [13, 14, 15, 16],
-    //     ['x'],
-    //     ['x']
-    // ];
-
-    //let copyArray = [[],[],[],[],[]];
-
-    // let longest = 0;
-    // for (let row of arr2) {
-    //     //! check for longest length of row
-    //     longest < row.length
-    //         ? longest = row.length
-    //         : '';
+    // for (let i = arr.length - 1; i >= 0; i--) {
+    //     //! turn right >>>
+    //     copyArrayRight[i] = [];
+    //     for (let j = arr.length - 1; j >= 0; j--) {
+    //         //? 3x0 2x0 ...
+    //         //? 3x1 ... 0x2
+    //         //? ... 2x3 0x3
+    //         //! on row[0] -> [lastIndex--][indexOfRow]
+    //         copyArrayRight[i].push(arr[j][i]);
+    //     }
     // }
     
-    // for (let i = longest - 1; i >= 0; i--) {
-    //     //! turn right >>>
-    //     for (let j = arr2.length - 1; j >= 0; j--) {
-    //         arr2[j][i] !== undefined 
-    //             ? copyArray2[i].push(arr2[j][i])
-    //             : copyArray2[i].push('');   
+    // let copyArrayLeft = [[], [], [], []];
+
+    // for (let row of arr) {
+    //     //! turn left <<<
+    //     for (let i = 0, len = arr.length - 1; i <= len; i++) {   
+    //         //? ... ... 3x3
+    //         //? 0x1 ... ...
+    //         //? 0x0 1x0 ...
+    //         //! from top to bottom rows -> PUSH element from current row (start from first row) with index[i](start from index 0)
+    //         //! into last copy[] row => [ixRow]
+    //         //? ex: on row[last--].push(row[0], row[1])
+    //         copyArrayLeft[len - i].push(row[i]);
     //     }
     // }
 
-    //console.log('Rotated Array2 is: ',copyArray2);
+    // console.log(`Rotate right: `, copyArrayRight);
+    // console.log(`Rotate left: `, copyArrayLeft);
+
+////==========================================================
+
+    let arr2 = [
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 10, 11, 12, 'x'],
+        [13, 14, 15, 16],
+        ['x'],
+        ['x']
+    ];
+
+    let copyArray = [];
+
+    let longest = 0;
+    for (let row of arr2) {
+        //! check for longest length of row
+        longest < row.length
+            ? longest = row.length
+            : '';
+    }
+    
+    for (let i = longest - 1; i >= 0; i--) {
+        //! turn right >>>
+        copyArray[i] = [];
+        for (let j = arr2.length - 1; j >= 0; j--) {
+            arr2[j][i] !== undefined 
+                ? copyArray[i].push(arr2[j][i])
+                : copyArray[i].push('');   
+        }
+    }
+
+    console.log('Rotated Array2 is: ',copyArray);
 }
 
 solution();

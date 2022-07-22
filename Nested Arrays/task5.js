@@ -7,30 +7,18 @@ function solution(nestedArray) {
     let highestResult = [];
     let highestSum = 0;
     console.log(nestedArray);
-    for (let row = 0, len = nestedArray.length - 1, currentResult = [], currentSum = 0; row < len; row++) {
+    for (let row = 0, len = nestedArray.length - 1; row < len; row++) {
         //! iterate through all rows
 
         for (let col = 0, len = nestedArray[row].length - 1; col < len; col++) {
             //! iterate through columns in a nestedArray's rows
 
-            for (let boxRow = row, boxSize = 2; boxRow < row + boxSize; boxRow++) {
-                //! set row of 'box': current row with range 2
+            let currentSum = nestedArray[row][col] + nestedArray[row][col + 1] + nestedArray[row + 1][col] + nestedArray[row + 1][col + 1];
 
-                for (let boxCol = col; boxCol < col + boxSize; boxCol++) {
-                    //! set column of 'box': current col with range 2
-
-                    currentResult.push(nestedArray[boxRow][boxCol]);
-                    currentSum += nestedArray[boxRow][boxCol];
-                    //! save values of current cells in 'box' 2x2
-                }
+            if(currentSum > highestSum) {
+                highestSum = currentSum;
+                highestResult = [nestedArray[row][col], nestedArray[row][col + 1], nestedArray[row + 1][col], nestedArray[row + 1][col + 1]];
             }
-
-            highestSum < currentSum ? (highestSum = currentSum, highestResult = currentResult) : '';
-            //! set new highest sum and new result[]
-            
-            currentSum = 0;
-            currentResult = [];
-            //! reset values for next loop
         }
     }
     console.log(`Highest sum ${highestSum} is from`, highestResult);

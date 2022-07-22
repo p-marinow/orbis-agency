@@ -5,14 +5,13 @@
 
 function solution(nestedArr) {
     console.log(nestedArr);
-    for (let i = 0, len = nestedArr.length, sumOfDiagonal = []; i < len; i++) {
+    const sumOfDiagonal = [];
+    for (let i = 0, len = nestedArr.length; i < len; i++) {
         //! iterate through all rows
         //? ex: arr[0][0], arr[1][1], arr[2][2]
         sumOfDiagonal.push(nestedArr[i][i]);
-        i === len - 1
-            ? console.log(sumOfDiagonal)
-            : '';
     }
+    console.log(sumOfDiagonal)
 }
 
 function inputSeed(m) {

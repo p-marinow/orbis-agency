@@ -9,15 +9,14 @@ function solution(arr) {
     //     [false, false, false, false],
     //     [false, false, false, false],
     //     [false, false, false, false]
-    //         ];
+    // ];
 
     console.log(arr);
 
     let flag = false;
     //! initiate flag to false, IF true break loop
 
-    firstLoop: //! LOOP TAG
-    for (let i = 0, len = arr.length; i < len; i++) {
+    firstLoop: for (let i = 0, len = arr.length; i < len; i++) {
         //! iterate through all rows
 
         for (let j = 0, len = arr[i].length - 1 - i; j < len; j++) {
@@ -27,15 +26,19 @@ function solution(arr) {
             //?     [0, 1, 2] => (3 - 1) - 1 => [0]
             //?     [0, 1, 2] => (3 - 1) - 2 =>
 
-            if(arr[i][j]) {
+            if (arr[i][j]) {
                 //! IF current cell is with 'true' value set flag to true and break loop
-                console.log(`Array contain 'true' value, first match is on: ${i}x${j}`);
                 flag = true;
                 break firstLoop;
             }
         }  
     }
-    flag ? '' : console.log('None \'true\' value');
+
+    if (flag) {
+        console.log(`Array contain 'true' value, first match is on: ${i}x${j}`);     
+    } else {
+        console.log('None \'true\' value');
+    }
 }
 
 function inputSeed(m) {

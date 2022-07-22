@@ -10,19 +10,19 @@ function solution(nestedArr) {
     console.log(`Array is: `, nestedArr);
     for (let i = 0, len = nestedArr.length; i < len; i++) {
         //! iterate through all rows
+
+        sumOfRow = 0;
         for ( let j = 0, len = nestedArr[i].length; j < len; j++) {
             //! iterate through every column in a row
 
             sumOfRow += nestedArr[i][j];
             //! add every cell in a sumOfRow
         }
-
-        sumOfRow >= sum
-        //! set new bigger sumOfRow and save current index and current row
-            ? (sum = sumOfRow, [row[0], row[1]] = [i, nestedArr[i]])
-            : '';
-
-        sumOfRow = 0;
+        
+        if (sumOfRow >= sum) {
+            sum = sumOfRow;
+            row = [i, nestedArr[i]];
+        }
     }
     console.log(`Largest sum of numbers is on row in a row ${row[0] + 1}`, row[1]);
 }

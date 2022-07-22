@@ -14,13 +14,13 @@
     * Максималната сума по редове е > от максималната сума по колони
 */
 
-function solution(nestedArr) {
-    // let nestedArr = [
-    //     [1,   2,  3,  4],
-    //     [5,   6,  7,  8],
-    //     [9,  10, 11, 12],
-    //     [13, 14, 15, 16]
-    // ];
+function solution() {
+    let nestedArr = [
+        [1,   2,  3,  4],
+        [5,   6,  7,  8],
+        [9,  10, 11, 12],
+        [13, 14, 15, 16]
+    ];
 
     let largestRowSum = 0;
     let largestColSum = 0;
@@ -34,13 +34,19 @@ function solution(nestedArr) {
         for (let num of nestedArr[row]) {
             //! for every row sum all numbers and check which sum is greater
             rowSum += num;
-            rowSum > largestRowSum ? largestRowSum = rowSum : '';
         }
         
-        for (let cols of nestedArr) {
+        if (rowSum > largestRowSum) {
+            largestRowSum = rowSum;
+        }
+
+        for (let rows of nestedArr) {
             //! for every row with index row in nestedArr sum all numbers and check which sum is greater
-            colSum += cols[row]
-            colSum > largestColSum ? largestColSum = colSum : '';
+            colSum += rows[row];
+        }
+        
+        if (colSum > largestColSum) {
+            largestColSum = colSum;
         }
     }
 

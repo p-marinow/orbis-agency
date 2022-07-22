@@ -15,7 +15,10 @@
 function solution(arr) {
     console.log(`Array is: `, arr);
 
-    for (let i = 0, len = arr.length - 1, leftDiagonal = [], rightDiagonal = []; i <= len; i++) {
+    const rightDiagonal = [];
+    const leftDiagonal = [];
+
+    for (let i = 0, len = arr.length - 1; i <= len; i++) {
         //! iterate through all rows
 
         //! push value of matching pattern
@@ -25,9 +28,8 @@ function solution(arr) {
         //! backward iterate through row on specific location
         //? ex: arr[0][3], arr[1][2], arr[2][1], arr[3][0]
         rightDiagonal.push(arr[i][len - i]);
-
-        i === len ? console.log('\nLeft diagonal:', leftDiagonal, '\nRight diagonal:', rightDiagonal) : '';
     }
+    console.log('\nLeft diagonal:', leftDiagonal, '\nRight diagonal:', rightDiagonal);
 }
 
 function inputSeed(m) {

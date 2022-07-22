@@ -4,14 +4,15 @@
 
 function solution(nestedArr) {
     console.log(`Array is:`, nestedArr);
-    for (let i = 0, len = nestedArr.length, multiOfDiagonal = 1; i < len; i++) {
+    let multiOfDiagonal = 1;
+    
+    for (let i = 0, len = nestedArr.length; i < len; i++) {
         //! iterate through all rows
         //? ex: arr[0][0], arr[1][1], arr[2][2]
         multiOfDiagonal *= nestedArr[i][i];
-        i === len - 1
-            ? console.log(`Sum of main diagonal is: ${multiOfDiagonal}`)
-            : '';
     }
+
+    console.log(`Sum of main diagonal is: ${multiOfDiagonal}`);
 }
 
 function inputSeed(m) {

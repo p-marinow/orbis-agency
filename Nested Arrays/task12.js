@@ -4,11 +4,11 @@
 
     ? Пример:
     [11,12,13,14,15,16],
-    [21,22,23,24,25,26],
+    ![21,22,23,24,25,26],
     [31,32,33,34,35,36],
-    [41,42,43,44,45,46],
+    ![41,42,43,44,45,46],
     [51,52,53,54,55,56],
-    [61,62,63,64,65,66]
+    ![61,62,63,64,65,66]
     
     ! Изход:
     [21,22,23,24,25,26] сума 141
@@ -21,8 +21,7 @@ function solution(nestedArr) {
     console.log(`Array is: `, nestedArr,'\n');
     let sumOfRow = 0;
     let sumOfAllRows = 0;
-    let sumArr = [];
-    let rowArr = [];
+    
     for (let i = 1, len = nestedArr.length; i < len; i+=2) {
             sumOfRow = 0;
 
@@ -30,13 +29,8 @@ function solution(nestedArr) {
                 sumOfRow += num;
             }
 
-            sumArr.push(sumOfRow);
-            rowArr.push(nestedArr[i]);  
-    }
-
-    for(let i = 0; i < sumArr.length; i++) {
-        console.log(rowArr[i], `Sum is: ${sumArr[i]}`);
-        sumOfAllRows += sumArr[i];
+            console.log(nestedArr[i], `Sum is: ${sumOfRow}`);
+            sumOfAllRows += sumOfRow;
     }
     
     console.log(`\nTotal sum of all even rows is: ${sumOfAllRows}`);

@@ -39,8 +39,6 @@ function solution(nestedArr) {
         }
     }
     console.log(`Total sum of all rows is: ${totalSum}`);
-
-
 }
 
 function inputSeed(m) {
